@@ -13,4 +13,10 @@ print(df[df["Sex"] == "female"].shape)   # how many women? we use shape to get t
 print(df[(df["Sex"] == "female") & (df["Pclass"] == 1)].shape) # how many women in first class?
 print(df[df['Survived']==1].shape)  # how many survived?
 print(df[(df["Sex"]== "male") & (df["Age"]<18)].shape)  # how many males under 18?
-print(df[(df["Sex"] == "female") & (df["Survived"] == 1)]["Age"].mean()) # average age of women who survived
+print(df[(df["Sex"] == "female") & (df["Survived"] == 1)]["Age"].mean()) # average age of women who survived 
+print(df.groupby("Sex")['Survived'].count())
+print(df.groupby("Sex")['Survived'].mean())  # average survival rate by sex
+print(df.groupby("Sex")['Survived'].max())  # maximum survival rate by sex
+print(df.groupby("Sex")['Survived'].sum())  # total number of survivors by sex
+print(df.groupby("Pclass")['Survived'].mean())  # average survival rate by passenger class
+print(df.groupby("Pclass")['Fare'].mean())  # average fare by passenger class
