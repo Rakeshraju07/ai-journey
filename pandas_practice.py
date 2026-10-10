@@ -20,3 +20,8 @@ print(df.groupby("Sex")['Survived'].max())  # maximum survival rate by sex
 print(df.groupby("Sex")['Survived'].sum())  # total number of survivors by sex
 print(df.groupby("Pclass")['Survived'].mean())  # average survival rate by passenger class
 print(df.groupby("Pclass")['Fare'].mean())  # average fare by passenger class
+print(df.info())  # data types and non-null counts
+print(df.isnull().sum())  # count of missing values in each column
+df['Age'] = df['Age'].fillna(df['Age'].median())  # fill missing Age values with the median age
+df['Embarked'] = df['Embarked'].fillna(df['Embarked'].mode()[0])  # fill missing Embarked values with the most common value
+print(df.isnull().sum())  # count of missing values in each column after filling
